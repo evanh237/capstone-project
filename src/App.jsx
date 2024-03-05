@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, Routes, Route } from "react-router";
 import AllProducts from "./components/AllProducts";
 import Login from "./components/Login";
+import NavBar from "./components/Navbar";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <>
+      <NavBar />
       <Routes>
         <Route path="/" element={<h1>Home</h1>} />
         <Route
