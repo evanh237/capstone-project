@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { fetchSingleUser, fetchUserLogin } from "../api";
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ setToken, setUser }) => {
-  const [userName, setUserName] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!userName || !password) {
+    if (!username || !password) {
       setErrorMessage("Please fill out both fields!");
       return;
     }
@@ -19,8 +21,9 @@ const Login = ({ setToken, setUser }) => {
       if (user && user.token) {
         setToken(user.token);
         setPassword("");
+        navigate("/account");
 
-        fetchSingleUser(user.token)
+        fetchSingleUser()
           .then((userData) => {
             setUser(userData);
           })
@@ -49,7 +52,7 @@ const Login = ({ setToken, setUser }) => {
             className="username"
             type="text"
             placeholder="username"
-            value={userName}
+            value={username}
             onChange={(e) => setUserName(e.target.value)}
           />
           <br></br>
@@ -60,6 +63,7 @@ const Login = ({ setToken, setUser }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
           <button type="submit" className="submit-button">
             Login
           </button>

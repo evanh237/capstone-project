@@ -40,21 +40,29 @@ export const fetchAllUsers = async () => {
   }
 };
 
-export const fetchSingleUser = async () => {
+export const fetchSingleUser = async (token) => {
   try {
-    const response = await fetch(`${BASE_URL}/users/${id}`);
+    const response = await fetch(`${BASE_URL}/users/7`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
     if (!response.ok) {
       throw new Error("Network response /GET single user failed!");
     }
     const result = await response.json();
-    return result.id;
+    return result;
   } catch (error) {}
 };
 
-export const fetchUserLogin = async () => {
+export const fetchUserLogin = async (username, password) => {
   try {
     const response = await fetch(`${BASE_URL}/auth/login`, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         username,
         password,
@@ -64,9 +72,10 @@ export const fetchUserLogin = async () => {
       throw new Error("Login failed!");
     }
     const result = await response.json();
+    console.log(result);
     return result;
   } catch (error) {
-    ("Error loggin in!");
+    ("Error logging in!");
   }
 };
 
