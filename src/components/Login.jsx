@@ -8,7 +8,7 @@ const Login = ({ setToken, setUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !password) {
+    if (!userName || !password) {
       setErrorMessage("Please fill out both fields!");
       return;
     }
