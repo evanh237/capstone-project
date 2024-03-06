@@ -7,11 +7,13 @@ import Login from "./components/Login";
 import NavBar from "./components/Navbar";
 import Account from "./components/Account";
 import SingleItem from "./components/SingleItem";
+import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
   const [products, setProducts] = useState([]);
   const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [user, setUser] = useState(null);
+  const [cart, setCart] = useState(null);
 
   const navigate = useNavigate();
 
@@ -76,7 +78,17 @@ function App() {
             />
           }
         ></Route>
-        {/* <Route path="/cart"></Route> */}
+        <Route
+          path="/carts/:id"
+          element={
+            <ShoppingCart
+              token={token}
+              cart={cart}
+              setCart={setCart}
+              products={products}
+            />
+          }
+        ></Route>
         <Route
           path="/products/:id"
           element={<SingleItem id={products.id} token={token} />}

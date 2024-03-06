@@ -12,10 +12,9 @@ const CardItem = ({ product, id }) => {
       <img className="card-image" src={product.image} alt={product.title} />
       <div className="card-content">
         <h4 className="card-title">{product.title}</h4>
-        {/* <p className="description">
-          Product Description: {product.description}
-        </p> */}
+
         <p className="price">${product.price}</p>
+        <p className="rating">Customer Rating: {product.rating.rate}/5</p>
         <p className="category">Category: {product.category}</p>
         <div className="details-button">
           <button onClick={handleDetails}>See Details</button>

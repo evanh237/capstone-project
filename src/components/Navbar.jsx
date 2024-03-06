@@ -17,7 +17,7 @@ const NavBar = () => {
             <Link to="/login">Log In</Link>
           </li>
           <li>
-            <Link to="/cart">My Cart</Link>
+            <Link to="/carts/5">My Cart</Link>
           </li>
           <li>
             <Link to="/account">My Account</Link>

@@ -70,7 +70,6 @@ const Login = ({ setToken, setUser }) => {
           </button>
         </form>
       </div>
-      <h2>Need to sign up?</h2>
     </div>
   );
 };
