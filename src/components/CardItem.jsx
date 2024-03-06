@@ -1,7 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./CardItem.css";
 
-const CardItem = ({ product }) => {
+const CardItem = ({ product, id }) => {
+  const navigate = useNavigate();
+  const handleDetails = () => {
+    navigate(`/products/${id}`);
+  };
   return (
     <div className="card-container">
       <img className="card-image" src={product.image} alt={product.title} />
@@ -12,6 +17,9 @@ const CardItem = ({ product }) => {
         </p> */}
         <p className="price">${product.price}</p>
         <p className="category">Category: {product.category}</p>
+        <div className="details-button">
+          <button onClick={handleDetails}>See Details</button>
+        </div>
       </div>
     </div>
   );

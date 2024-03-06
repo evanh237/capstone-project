@@ -6,9 +6,8 @@ const AllProducts = ({ products }) => {
   return (
     <div className="product-cards">
       {products?.map((product) => {
-        return <CardItem key={product.id} product={product} />;
+        return <CardItem key={product.id} id={product.id} product={product} />;
       })}
-      <h1>All Products</h1>
     </div>
   );
 };

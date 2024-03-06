@@ -6,6 +6,7 @@ import AllProducts from "./components/AllProducts";
 import Login from "./components/Login";
 import NavBar from "./components/Navbar";
 import Account from "./components/Account";
+import SingleItem from "./components/SingleItem";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -63,7 +64,7 @@ function App() {
             />
           }
         ></Route>
-        {/* <Route path="/register" element={<Register />}></Route> */}
+
         <Route
           path="/account"
           element={
@@ -75,7 +76,11 @@ function App() {
             />
           }
         ></Route>
-        <Route path="/cart"></Route>
+        {/* <Route path="/cart"></Route> */}
+        <Route
+          path="/products/:id"
+          element={<SingleItem id={products.id} token={token} />}
+        ></Route>
       </Routes>
     </>
   );

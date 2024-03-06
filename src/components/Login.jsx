@@ -64,11 +64,13 @@ const Login = ({ setToken, setUser }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
           {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <br></br>
           <button type="submit" className="submit-button">
             Login
           </button>
         </form>
       </div>
+      <h2>Need to sign up?</h2>
     </div>
   );
 };
