@@ -20,7 +20,8 @@ export const fetchSingleProduct = async (id) => {
   try {
     const response = await fetch(`${BASE_URL}/products/${id}`);
     const result = await response.json();
-    return result.id;
+
+    return result;
   } catch (error) {
     console.error(`Oh no, trouble fetching product #${id}!`, error);
   }
@@ -42,7 +43,7 @@ export const fetchAllUsers = async () => {
 
 export const fetchSingleUser = async (token) => {
   try {
-    const response = await fetch(`${BASE_URL}/users/7`, {
+    const response = await fetch(`${BASE_URL}/users/3`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -78,25 +79,3 @@ export const fetchUserLogin = async (username, password) => {
     ("Error logging in!");
   }
 };
-
-// export const fetchUserLogin = async (username, password) => {
-//   try {
-//     const response = await fetch(`${BASE_URL}/users/login`, {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-//         username,
-//         password,
-//       }),
-//     });
-//     if (!response.ok) {
-//       throw new Error("Login failed!");
-//     }
-//     const result = await response.json();
-//     return result;
-//   } catch (error) {
-//     console.error("Error fetching user:", error);
-//   }
-// };
