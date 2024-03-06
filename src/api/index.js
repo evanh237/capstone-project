@@ -34,7 +34,7 @@ export const fetchAllUsers = async () => {
       throw new Error("Network response /GET all users failed!");
     }
     const result = await response.json();
-    console.log(result);
+
     return result;
   } catch (error) {
     console.error("There was a problem with /GET all users!");
@@ -54,7 +54,9 @@ export const fetchSingleUser = async (token) => {
     }
     const result = await response.json();
     return result;
-  } catch (error) {}
+  } catch (error) {
+    console.error("There was a problem getting that user!");
+  }
 };
 
 export const fetchUserLogin = async (username, password) => {
@@ -76,6 +78,20 @@ export const fetchUserLogin = async (username, password) => {
     console.log(result);
     return result;
   } catch (error) {
-    ("Error logging in!");
+    console.error("Error logging in!");
+  }
+};
+
+export const fetchUserCart = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/carts/5`);
+    if (!response.ok) {
+      throw new Error("Network response /GET cart failed!");
+    }
+    const result = await response.json();
+
+    return result;
+  } catch (error) {
+    console.error("There was a problem getting that users cart!");
   }
 };
