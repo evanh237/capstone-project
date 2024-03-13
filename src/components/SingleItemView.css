@@ -1,0 +1,35 @@
+.single-product-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.single-product-image {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.single-product-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.single-product-button {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.single-product-button button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.go-back {
+  background-color: #007bff;
+}
+
+.add-item-button {
+  background-color: #28a745;
+  color: whitesmoke;
+}

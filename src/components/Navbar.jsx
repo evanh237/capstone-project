@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import SearchBar from "./SearchBar";
 import "./Navbar.css";
 
 const NavBar = () => {
@@ -17,7 +16,7 @@ const NavBar = () => {
             <Link to="/login">Log In</Link>
           </li>
           <li>
-            <Link to="/carts/5">My Cart</Link>
+            <Link to="/carts/user/4">My Cart</Link>
           </li>
           <li>
             <Link to="/account">My Account</Link>
@@ -25,6 +24,7 @@ const NavBar = () => {
           <li>
             <Link to="/products"> Products</Link>
           </li>
+          {/* <SearchBar /> */}
         </ul>
       </nav>
     </div>

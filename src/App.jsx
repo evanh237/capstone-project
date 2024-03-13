@@ -13,7 +13,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [token, setToken] = useState(localStorage.getItem("token") || null);
   const [user, setUser] = useState(null);
-  const [cart, setCart] = useState(null);
+  const [cart, setCart] = useState([]);
 
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ function App() {
     setToken(null);
     setUser(null);
 
-    navigate("/");
+    navigate("/products");
   };
 
   useEffect(() => {
@@ -52,9 +52,14 @@ function App() {
         <Route
           path="/products"
           element={
-            <AllProducts products={products} setProducts={setProducts} />
+            <AllProducts
+              products={products}
+              setProducts={setProducts}
+              token={token}
+            />
           }
         />
+
         <Route
           path="/login"
           element={
@@ -79,19 +84,28 @@ function App() {
           }
         ></Route>
         <Route
-          path="/carts/:id"
+          path="/carts/user/4"
           element={
             <ShoppingCart
               token={token}
               cart={cart}
               setCart={setCart}
               products={products}
+              id={products.id}
             />
           }
         ></Route>
         <Route
           path="/products/:id"
-          element={<SingleItem id={products.id} token={token} />}
+          element={
+            <SingleItem
+              id={products.id}
+              token={token}
+              setUser={setUser}
+              setCart={setCart}
+              cart={cart}
+            />
+          }
         ></Route>
       </Routes>
     </>

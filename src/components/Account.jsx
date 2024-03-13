@@ -31,8 +31,11 @@ const Account = ({ token, onLogout, user, setUser }) => {
           <h1>{user.name.firstname}'s Account</h1>
           <p>Shipping Info: </p>
           <p>
-            Street Address: {user.address.number} {user.address.street}
+            Street Address: {user.address.number} {user.address.street} Apt #
+            {user.address.number}
           </p>
+          <p>City: {user.address.city}</p>
+          <p>Zipcode: {user.address.zipcode}</p>
           <button onClick={onLogout}>Log Out</button>
         </>
       ) : (

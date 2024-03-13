@@ -14,10 +14,13 @@
 }
 
 nav ul {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
   list-style: none;
   display: flex;
-  margin: 0;
-  padding: 0;
+  margin: 5px;
+  padding: 5px;
 }
 
 nav ul li {
