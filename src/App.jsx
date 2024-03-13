@@ -8,6 +8,7 @@ import NavBar from "./components/Navbar";
 import Account from "./components/Account";
 import SingleItem from "./components/SingleItem";
 import ShoppingCart from "./components/ShoppingCart";
+import CheckoutPage from "./components/CheckoutPage";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -107,6 +108,7 @@ function App() {
             />
           }
         ></Route>
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
     </>
   );
